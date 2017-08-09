@@ -17,9 +17,27 @@
 
       <% @recommends.each do |recommend| %>
       <tr>
-        <td><%= recommend.friend.name %></td>
-        <td><%= recommend.entertainment.title %></td>
-        <td><%= recommend.recommend_rating.rating_id %></td>
+        <td>
+          <% if recommend.friend.present? %>
+            <a href="/friends/<%= recommend.friend.id %>">
+              <%= recommend.friend.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if recommend.entertainment.present? %>
+            <a href="/entertainments/<%= recommend.entertainment.id %>">
+              <%= recommend.entertainment.title %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if recommend.recommend_rating.present? %>
+            <a href="/recommend_ratings/<%= recommend.recommend_rating.id %>">
+              <%= recommend.recommend_rating.rating_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/recommends/<%= recommend.id %>" class="btn btn-primary">Show</a>
           <a href="/recommends/<%= recommend.id %>/edit" class="btn btn-warning">Edit</a>

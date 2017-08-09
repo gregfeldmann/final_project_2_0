@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Entertainment</dt>
-      <dd><%= @rating.entertainment_id %></dd>
+      <dd>
+        <% if @rating.entertainment.present? %>
+          <a href="/entertainments/<%= @rating.entertainment_id %>">
+            <%= @rating.entertainment.title %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Friend</dt>
       <dd><%= @rating.friend_id %></dd>

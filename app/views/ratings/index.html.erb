@@ -16,7 +16,13 @@
 
       <% @ratings.each do |rating| %>
       <tr>
-        <td><%= rating.entertainment.title %></td>
+        <td>
+          <% if rating.entertainment.present? %>
+            <a href="/entertainments/<%= rating.entertainment.id %>">
+              <%= rating.entertainment.title %>
+            </a>
+          <% end %>
+        </td>
         <td><%= rating.friend_id %></td>
         <td>
           <a href="/ratings/<%= rating.id %>" class="btn btn-primary">Show</a>
