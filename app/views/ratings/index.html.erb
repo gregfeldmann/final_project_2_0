@@ -16,7 +16,7 @@
 
       <% @ratings.each do |rating| %>
       <tr>
-        <td><%= rating.entertainment_id %></td>
+        <td><%= rating.entertainment.title %></td>
         <td><%= rating.friend_id %></td>
         <td>
           <a href="/ratings/<%= rating.id %>" class="btn btn-primary">Show</a>
