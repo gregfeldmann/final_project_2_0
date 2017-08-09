@@ -1,6 +1,7 @@
 class RecommendRatingsController < ApplicationController
   def index
-    @recommend_ratings = RecommendRating.page(params[:page]).per(10)
+    @q = RecommendRating.ransack(params[:q])
+    @recommend_ratings = @q.result(:distinct => true).includes(:friend, :rating, :recommends).page(params[:page]).per(10)
 
     render("recommend_ratings/index.html.erb")
   end

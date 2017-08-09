@@ -1,6 +1,7 @@
 class EntertainmentsController < ApplicationController
   def index
-    @entertainments = Entertainment.page(params[:page]).per(10)
+    @q = Entertainment.ransack(params[:q])
+    @entertainments = @q.result(:distinct => true).includes(:ratings, :recommends).page(params[:page]).per(10)
 
     render("entertainments/index.html.erb")
   end
