@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Recommend_rating resource:
+  # CREATE
+  get "/recommend_ratings/new", :controller => "recommend_ratings", :action => "new"
+  post "/create_recommend_rating", :controller => "recommend_ratings", :action => "create"
+
+  # READ
+  get "/recommend_ratings", :controller => "recommend_ratings", :action => "index"
+  get "/recommend_ratings/:id", :controller => "recommend_ratings", :action => "show"
+
+  # UPDATE
+  get "/recommend_ratings/:id/edit", :controller => "recommend_ratings", :action => "edit"
+  post "/update_recommend_rating/:id", :controller => "recommend_ratings", :action => "update"
+
+  # DELETE
+  get "/delete_recommend_rating/:id", :controller => "recommend_ratings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Rating resource:
   # CREATE
   get "/ratings/new", :controller => "ratings", :action => "new"

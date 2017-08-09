@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @recommend_rating.errors.any? %>
+  <% @recommend_rating.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Recommend Rating</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_recommend_rating" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for rating_id -->
+      <div class="form-group">
+        <label for="rating_id" class="control-label">
+          Rating
+        </label>
+
+        <input type="text" id="rating_id" name="rating_id" placeholder="Rating" class="form-control" value="<%= @recommend_rating.rating_id %>">
+      </div>
+
+      <!-- Label and input for friend_id -->
+      <div class="form-group">
+        <label for="friend_id" class="control-label">
+          Friend
+        </label>
+
+        <input type="text" id="friend_id" name="friend_id" placeholder="Friend" class="form-control" value="<%= @recommend_rating.friend_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Recommend Rating
+      </button>
+      or
+      <a href="/recommend_ratings">Cancel</a>
+    </form>
+  </div>
+</div>
