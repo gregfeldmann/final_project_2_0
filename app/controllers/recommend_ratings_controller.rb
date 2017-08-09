@@ -1,6 +1,6 @@
 class RecommendRatingsController < ApplicationController
   def index
-    @recommend_ratings = RecommendRating.all
+    @recommend_ratings = RecommendRating.page(params[:page]).per(10)
 
     render("recommend_ratings/index.html.erb")
   end
