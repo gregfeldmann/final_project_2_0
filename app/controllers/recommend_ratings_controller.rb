@@ -6,6 +6,7 @@ class RecommendRatingsController < ApplicationController
   end
 
   def show
+    @recommend = Recommend.new
     @recommend_rating = RecommendRating.find(params[:id])
 
     render("recommend_ratings/show.html.erb")
