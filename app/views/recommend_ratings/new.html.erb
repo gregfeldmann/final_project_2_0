@@ -33,7 +33,7 @@
           Friend
         </label>
 
-        <input type="text" id="friend_id" name="friend_id" placeholder="Friend" class="form-control" value="<%= @recommend_rating.friend_id %>">
+        <%= select_tag(:friend_id, options_from_collection_for_select(Friend.all, :id, :name, @recommend_rating.friend_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
