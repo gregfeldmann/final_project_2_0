@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "friends#index"
   # Routes for the Recommend_rating resource:
   # CREATE
   get "/recommend_ratings/new", :controller => "recommend_ratings", :action => "new"
