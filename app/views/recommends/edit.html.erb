@@ -42,7 +42,7 @@
           Recommend rating
         </label>
 
-        <input type="text" id="recommend_rating_id" name="recommend_rating_id" placeholder="Recommend rating" class="form-control" value="<%= @recommend.recommend_rating_id %>">
+        <%= select_tag(:recommend_rating_id, options_from_collection_for_select(RecommendRating.all, :id, :rating_id, @recommend.recommend_rating_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
