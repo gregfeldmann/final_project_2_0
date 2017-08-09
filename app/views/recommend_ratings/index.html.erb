@@ -17,7 +17,7 @@
       <% @recommend_ratings.each do |recommend_rating| %>
       <tr>
         <td><%= recommend_rating.rating.entertainment_id %></td>
-        <td><%= recommend_rating.friend_id %></td>
+        <td><%= recommend_rating.friend.name %></td>
         <td>
           <a href="/recommend_ratings/<%= recommend_rating.id %>" class="btn btn-primary">Show</a>
           <a href="/recommend_ratings/<%= recommend_rating.id %>/edit" class="btn btn-warning">Edit</a>
