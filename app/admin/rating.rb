@@ -1,6 +1,6 @@
 ActiveAdmin.register Rating do
 
- permit_params :entertainment_id, :friend_id
+ permit_params :entertainment_id, :friend_id, :rating, :url, :title, :friend
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

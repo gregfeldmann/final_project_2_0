@@ -14,6 +14,11 @@
   </div>
 
 <div class="form-group">
+    <%= f.label :category_cont, "Category contains" %>
+    <%= f.text_field :category_cont, :class => "form-control", :placeholder => "Category contains" %>
+  </div>
+
+<div class="form-group">
     <%= f.label :picture_cont, "Picture contains" %>
     <%= f.text_field :picture_cont, :class => "form-control", :placeholder => "Picture contains" %>
   </div>
@@ -21,11 +26,6 @@
 <div class="form-group">
     <%= f.label :rating_cont, "Rating contains" %>
     <%= f.text_field :rating_cont, :class => "form-control", :placeholder => "Rating contains" %>
-  </div>
-
-<div class="form-group">
-    <%= f.label :running_time_cont, "Running time contains" %>
-    <%= f.text_field :running_time_cont, :class => "form-control", :placeholder => "Running time contains" %>
   </div>
 
 <div class="form-group">
@@ -85,18 +85,18 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Title</th>
-        <th>Running time</th>
         <th>Rating</th>
         <th>Picture</th>
+        <th>Category</th>
         <th>Actions</th>
       </tr>
 
       <% @entertainments.each do |entertainment| %>
       <tr>
         <td><%= entertainment.title %></td>
-        <td><%= entertainment.running_time %></td>
         <td><%= entertainment.rating %></td>
         <td><%= entertainment.picture %></td>
+        <td><%= entertainment.category %></td>
         <td>
           <a href="/entertainments/<%= entertainment.id %>" class="btn btn-primary">Show</a>
           <a href="/entertainments/<%= entertainment.id %>/edit" class="btn btn-warning">Edit</a>

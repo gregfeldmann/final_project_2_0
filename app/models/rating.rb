@@ -1,10 +1,9 @@
 class Rating < ApplicationRecord
   # Direct associations
 
-  has_many   :recommend_ratings,
-             :dependent => :destroy
-
   belongs_to :entertainment
+
+  belongs_to :friend
 
   # Indirect associations
 
