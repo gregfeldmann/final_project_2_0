@@ -1,7 +1,7 @@
 class Friend < ApplicationRecord
   # Direct associations
 
-  has_many   :recommend_ratings,
+  has_many   :ratings,
              :dependent => :destroy
 
   has_many   :recommends,

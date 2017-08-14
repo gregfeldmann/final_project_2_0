@@ -24,9 +24,9 @@ class EntertainmentsController < ApplicationController
     @entertainment = Entertainment.new
 
     @entertainment.title = params[:title]
-    @entertainment.running_time = params[:running_time]
     @entertainment.rating = params[:rating]
     @entertainment.picture = params[:picture]
+    @entertainment.category = params[:category]
 
     save_status = @entertainment.save
 
@@ -54,9 +54,9 @@ class EntertainmentsController < ApplicationController
     @entertainment = Entertainment.find(params[:id])
 
     @entertainment.title = params[:title]
-    @entertainment.running_time = params[:running_time]
     @entertainment.rating = params[:rating]
     @entertainment.picture = params[:picture]
+    @entertainment.category = params[:category]
 
     save_status = @entertainment.save
 

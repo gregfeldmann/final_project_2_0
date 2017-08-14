@@ -1,13 +1,13 @@
 class FriendsController < ApplicationController
   def index
     @q = Friend.ransack(params[:q])
-    @friends = @q.result(:distinct => true).includes(:recommends, :recommend_ratings).page(params[:page]).per(10)
+    @friends = @q.result(:distinct => true).includes(:recommends, :ratings).page(params[:page]).per(10)
 
     render("friends/index.html.erb")
   end
 
   def show
-    @recommend_rating = RecommendRating.new
+    @rating = Rating.new
     @recommend = Recommend.new
     @friend = Friend.find(params[:id])
 

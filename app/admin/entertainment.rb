@@ -1,6 +1,6 @@
 ActiveAdmin.register Entertainment do
 
- permit_params :title, :running_time, :rating, :picture
+ permit_params :title, :rating, :picture, :category
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
