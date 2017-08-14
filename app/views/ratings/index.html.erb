@@ -9,13 +9,28 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
-  <%= f.label :friend_id, "Friend" %>
+    <%= f.label :friend_cont, "Friend contains" %>
+    <%= f.text_field :friend_cont, :class => "form-control", :placeholder => "Friend contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :title_cont, "Title contains" %>
+    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :url_cont, "Url contains" %>
+    <%= f.text_field :url_cont, :class => "form-control", :placeholder => "Url contains" %>
+  </div>
+
+<div class="form-group">
+  <%= f.label :rating, "Rating" %>
   <div class="row">
     <div class='col-md-6 mb-1'>
-      <%= f.text_field :friend_id_gteq, :class => "form-control", :placeholder => "Friend greater than or equal to" %>
+      <%= f.text_field :rating_gteq, :class => "form-control", :placeholder => "Rating greater than or equal to" %>
     </div>
     <div class='col-md-6'>
-      <%= f.text_field :friend_id_lteq, :class => "form-control", :placeholder => "Friend less than or equal to" %>
+      <%= f.text_field :rating_lteq, :class => "form-control", :placeholder => "Rating less than or equal to" %>
     </div>
   </div>
 </div>
@@ -61,6 +76,11 @@
       </script>
 
         <div class="form-group">
+      <%= f.label :friend_name_cont, "Friend name contains" %>
+      <%= f.text_field :friend_name_cont, :class => "form-control", :placeholder => "Friend name contains" %>
+    </div>
+
+<div class="form-group">
       <%= f.label :entertainment_title_cont, "Entertainment title contains" %>
       <%= f.text_field :entertainment_title_cont, :class => "form-control", :placeholder => "Entertainment title contains" %>
     </div>
@@ -81,6 +101,10 @@
       <tr>
         <th>Entertainment</th>
         <th>Friend</th>
+        <th>Rating</th>
+        <th>Url</th>
+        <th>Title</th>
+        <th>Friend</th>
         <th>Actions</th>
       </tr>
 
@@ -93,7 +117,17 @@
             </a>
           <% end %>
         </td>
-        <td><%= rating.friend_id %></td>
+        <td>
+          <% if rating.friend.present? %>
+            <a href="/friends/<%= rating.friend.id %>">
+              <%= rating.friend.name %>
+            </a>
+          <% end %>
+        </td>
+        <td><%= rating.rating %></td>
+        <td><%= rating.url %></td>
+        <td><%= rating.title %></td>
+        <td><%= rating.friend %></td>
         <td>
           <a href="/ratings/<%= rating.id %>" class="btn btn-primary">Show</a>
           <a href="/ratings/<%= rating.id %>/edit" class="btn btn-warning">Edit</a>

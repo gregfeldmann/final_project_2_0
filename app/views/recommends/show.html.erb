@@ -23,14 +23,14 @@
         <% end %>
       </dd>
 
-      <dt>Recommend rating</dt>
-      <dd>
-        <% if @recommend.recommend_rating.present? %>
-          <a href="/recommend_ratings/<%= @recommend.recommend_rating_id %>">
-            <%= @recommend.recommend_rating.rating_id %>
-          </a>
-        <% end %>
-      </dd>
+      <dt>Title</dt>
+      <dd><%= @recommend.title %></dd>
+
+      <dt>Rating</dt>
+      <dd><%= @recommend.rating %></dd>
+
+      <dt>Friend</dt>
+      <dd><%= @recommend.friend %></dd>
 
     </dl>
 

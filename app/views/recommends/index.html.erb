@@ -9,6 +9,21 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
+    <%= f.label :friend_cont, "Friend contains" %>
+    <%= f.text_field :friend_cont, :class => "form-control", :placeholder => "Friend contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :rating_cont, "Rating contains" %>
+    <%= f.text_field :rating_cont, :class => "form-control", :placeholder => "Rating contains" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :title_cont, "Title contains" %>
+    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title contains" %>
+  </div>
+
+<div class="form-group">
           <%= f.label :created_at, "Created at" %>
           <div class="row">
             <div class='col-md-6 mb-1'>
@@ -74,7 +89,9 @@
       <tr>
         <th>Friend</th>
         <th>Entertainment</th>
-        <th>Recommend rating</th>
+        <th>Title</th>
+        <th>Rating</th>
+        <th>Friend</th>
         <th>Actions</th>
       </tr>
 
@@ -94,13 +111,9 @@
             </a>
           <% end %>
         </td>
-        <td>
-          <% if recommend.recommend_rating.present? %>
-            <a href="/recommend_ratings/<%= recommend.recommend_rating.id %>">
-              <%= recommend.recommend_rating.rating_id %>
-            </a>
-          <% end %>
-        </td>
+        <td><%= recommend.title %></td>
+        <td><%= recommend.rating %></td>
+        <td><%= recommend.friend %></td>
         <td>
           <a href="/recommends/<%= recommend.id %>" class="btn btn-primary">Show</a>
           <a href="/recommends/<%= recommend.id %>/edit" class="btn btn-warning">Edit</a>

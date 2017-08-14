@@ -3,7 +3,9 @@ class CreateRecommends < ActiveRecord::Migration
     create_table :recommends do |t|
       t.integer :friend_id
       t.integer :entertainment_id
-      t.integer :recommend_rating_id
+      t.string :title
+      t.string :rating
+      t.string :friend
 
       t.timestamps
 
