@@ -15,7 +15,25 @@
       </dd>
 
       <dt>Friend</dt>
-      <dd><%= @rating.friend_id %></dd>
+      <dd>
+        <% if @rating.friend.present? %>
+          <a href="/friends/<%= @rating.friend_id %>">
+            <%= @rating.friend.name %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>Rating</dt>
+      <dd><%= @rating.rating %></dd>
+
+      <dt>Url</dt>
+      <dd><%= @rating.url %></dd>
+
+      <dt>Title</dt>
+      <dd><%= @rating.title %></dd>
+
+      <dt>Friend</dt>
+      <dd><%= @rating.friend %></dd>
 
     </dl>
 
@@ -30,59 +48,5 @@
         Delete
       </a>
     </div>
-  </div>
-</div>
-
-<!-- A Rating has many recommend_ratings -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Recommend Ratings
-      </li>
-
-      <% @rating.recommend_ratings.each do |recommend_rating| %>
-        <li class="list-group-item">
-          <a href="/recommend_ratings/<%= recommend_rating.id %>">
-            <%= recommend_rating.rating_id %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/recommend_ratings/<%= recommend_rating.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <a href="/recommend_ratings/<%= recommend_rating.id %>/edit" class="btn btn-warning">
-              <i class="fa fa-edit"></i>
-            </a>
-            <a href="/delete_recommend_rating/<%= recommend_rating.id %>" class="btn btn-danger" rel="nofollow">
-              <i class="fa fa-trash-o"></i>
-            </a>
-          </div>
-        </li>
-      <% end %>
-
-      <li class="list-group-item">
-        <form action="/create_recommend_rating" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for rating_id -->
-      <input type="hidden" name="rating_id" value="<%= @rating.id %>">
-
-      <!-- Label and input for friend_id -->
-      <div class="form-group">
-        <label for="friend_id" class="control-label">
-          Friend
-        </label>
-
-        <%= select_tag(:friend_id, options_from_collection_for_select(Friend.all, :id, :name), :class => "form-control") %>
-      </div>
-
-      <button class="btn btn-block btn-success">
-        Create Recommend Rating
-      </button>
-    </form>
-      </li>
-    </ul>
   </div>
 </div>

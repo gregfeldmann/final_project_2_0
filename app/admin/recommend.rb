@@ -1,6 +1,6 @@
 ActiveAdmin.register Recommend do
 
- permit_params :friend_id, :entertainment_id, :recommend_rating_id
+ permit_params :friend_id, :entertainment_id, :title, :rating, :friend
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

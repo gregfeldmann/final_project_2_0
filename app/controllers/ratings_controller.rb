@@ -1,13 +1,12 @@
 class RatingsController < ApplicationController
   def index
     @q = Rating.ransack(params[:q])
-    @ratings = @q.result(:distinct => true).includes(:entertainment, :recommend_ratings).page(params[:page]).per(10)
+    @ratings = @q.result(:distinct => true).includes(:friend, :entertainment).page(params[:page]).per(10)
 
     render("ratings/index.html.erb")
   end
 
   def show
-    @recommend_rating = RecommendRating.new
     @rating = Rating.find(params[:id])
 
     render("ratings/show.html.erb")
@@ -24,6 +23,10 @@ class RatingsController < ApplicationController
 
     @rating.entertainment_id = params[:entertainment_id]
     @rating.friend_id = params[:friend_id]
+    @rating.rating = params[:rating]
+    @rating.url = params[:url]
+    @rating.title = params[:title]
+    @rating.friend = params[:friend]
 
     save_status = @rating.save
 
@@ -52,6 +55,10 @@ class RatingsController < ApplicationController
 
     @rating.entertainment_id = params[:entertainment_id]
     @rating.friend_id = params[:friend_id]
+    @rating.rating = params[:rating]
+    @rating.url = params[:url]
+    @rating.title = params[:title]
+    @rating.friend = params[:friend]
 
     save_status = @rating.save
 

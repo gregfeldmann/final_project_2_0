@@ -3,6 +3,10 @@ class CreateRatings < ActiveRecord::Migration
     create_table :ratings do |t|
       t.integer :entertainment_id
       t.integer :friend_id
+      t.integer :rating
+      t.string :url
+      t.string :title
+      t.string :friend
 
       t.timestamps
 

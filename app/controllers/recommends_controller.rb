@@ -1,7 +1,7 @@
 class RecommendsController < ApplicationController
   def index
     @q = Recommend.ransack(params[:q])
-    @recommends = @q.result(:distinct => true).includes(:friend, :entertainment, :recommend_rating).page(params[:page]).per(10)
+    @recommends = @q.result(:distinct => true).includes(:friend, :entertainment).page(params[:page]).per(10)
 
     render("recommends/index.html.erb")
   end
@@ -23,7 +23,9 @@ class RecommendsController < ApplicationController
 
     @recommend.friend_id = params[:friend_id]
     @recommend.entertainment_id = params[:entertainment_id]
-    @recommend.recommend_rating_id = params[:recommend_rating_id]
+    @recommend.title = params[:title]
+    @recommend.rating = params[:rating]
+    @recommend.friend = params[:friend]
 
     save_status = @recommend.save
 
@@ -52,7 +54,9 @@ class RecommendsController < ApplicationController
 
     @recommend.friend_id = params[:friend_id]
     @recommend.entertainment_id = params[:entertainment_id]
-    @recommend.recommend_rating_id = params[:recommend_rating_id]
+    @recommend.title = params[:title]
+    @recommend.rating = params[:rating]
+    @recommend.friend = params[:friend]
 
     save_status = @recommend.save
 
